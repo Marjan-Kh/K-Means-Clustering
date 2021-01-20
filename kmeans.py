@@ -84,9 +84,6 @@ sns.pairplot(customers, x_vars = ['Age', 'Annual Income (k$)', 'Spending Score (
                plot_kws = {"s": 35, "alpha": 0.8});
 pyplot.show()
 
-# Dimensionality reduction
-# ========================
-
 # Transforming the categorical variable into two binary variables
 customers["Male"] = customers.Gender.apply(lambda x: 0 if x == "Male" else 1)
 customers["Female"] = customers.Gender.apply(lambda x: 0 if x == "Female" else 1)
@@ -95,18 +92,24 @@ X = customers.iloc[:, 2:]
 X.head()
 print("\n================================\n")
 
-# Applying PCA and fitting 
+# Dimensionality reduction
 # ========================
-pca = PCA(n_components=2).fit(X)
+
+# Applying PCA and fitting 
+# ------------------------
+# n_components : number of Principal Components we need to fit our data 
+pca = PCA(n_components = 2).fit(X)
+
+# Transformation
+pca_2d= pca.fit_transform(X)
+print(pca.explained_variance_ratio_)
 
 # Number of components PCA choose after fitting the model 
 print('Number of components after fitting is:')
 print(pca.n_components_)
-print("\n================================\n")
 
-# Transformation
-# ==============
-pca_2d = pca.transform(X)
+# Explained variance : squared-length of the vector
+print(pca.explained_variance_)
 
 # ==================
 # K-means clustering
