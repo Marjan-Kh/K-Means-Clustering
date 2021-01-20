@@ -111,26 +111,24 @@ print(pca.n_components_)
 # Explained variance : squared-length of the vector
 print(pca.explained_variance_)
 
-# ==================
-# K-means clustering
-# ==================
-def euclideandistance(x, y):   
-    return np.sqrt(np.sum((x - y) ** 2))
-
-# WSS : Within-cluster Sum of Square 
-# ==================================
-wcss = []
+# The number of clusters
+# ======================
+wcss = []  # WSS : Within-cluster Sum of Square 
 for i in range(1,11):
     km = KMeans(n_clusters = i,init = 'k-means++', max_iter = 300, n_init = 10, random_state = 0)
     km.fit(X)
     wcss.append(km.inertia_)
-plt.plot(range(1,11),wcss, c = "#c51b7d")
-plt.gca().spines["top"].set_visible(False)
-plt.gca().spines["right"].set_visible(False)
-plt.title('Elbow Method', size=14)
-plt.xlabel('Number of clusters', size=12)
-plt.ylabel('wcss', size=14)
+plt.plot(range(1,11),wcss, c = 'C0')
+plt.xlabel('Number of clusters', size=10)
+plt.ylabel('wcss', size=12)
 plt.show()
+
+# ==================                                                                                 
+# K-means clustering                                                                                 
+# ==================                                                                                 
+# Euclidean distance: to determine similarity/dissimilarity                                          
+def euclideandistance(x, y):
+    return np.sqrt(np.sum((x - y) ** 2))
 
 # Kmeans algorithm
 # ================
