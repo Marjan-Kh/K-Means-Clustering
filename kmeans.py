@@ -131,12 +131,12 @@ def euclideandistance(x, y):
     return np.sqrt(np.sum((x - y) ** 2))
 
 # Kmeans algorithm
-# ================
-# n_clusters = 5: Number of clusters
-# init: k-means++. Smart initialization
-# max_iter: Maximum number of iterations of the K-means algorithm for a single run
-# n_init: Number of time the algorithm will be run with different centroid seeds 
-# random_state: Random number generation for centroid initialization
+# ==================================
+# n_clusters = 5: number of clusters
+# init: k-means++, method for initialization
+# n_init: number of time the k-means algorithm will be run with different centroid seeds
+# max_iter: maximum number of iterations of the K-means algorithm for a single run
+# random_state: random number generation for centroid initialization
 
 kmeans = KMeans(n_clusters=5, init = 'k-means++', max_iter = 10, n_init = 10, random_state = 0)
 
