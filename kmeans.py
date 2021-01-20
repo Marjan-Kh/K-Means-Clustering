@@ -145,7 +145,7 @@ kmeans = KMeans(n_clusters=5, init = 'k-means++', max_iter = 10, n_init = 10, ra
 y_means = kmeans.fit_predict(X)
 
 # **************************************
-fig, ax = plt.subplots(figsize = (8, 6))
+fig, ax = plt.subplots(figsize = (6, 4))
 
 plt.scatter(pca_2d[:, 0], pca_2d[:, 1],
             c=y_means, 
@@ -153,13 +153,13 @@ plt.scatter(pca_2d[:, 0], pca_2d[:, 1],
             cmap=plt.cm.get_cmap("Spectral_r", 5),
             alpha=0.5)
 
-plt.xticks(size=12)
-plt.yticks(size=12)
+plt.xticks(size=10)
+plt.yticks(size=10)
 
-plt.xlabel("Component 1", size = 14, labelpad=10)
-plt.ylabel("Component 2", size = 14, labelpad=10)
+plt.xlabel("Component 1", size = 12, labelpad=10)
+plt.ylabel("Component 2", size = 12, labelpad=10)
 
-plt.title('Clusters', size=16)
+plt.title('Clusters', size=14)
 plt.colorbar(ticks=[0, 1, 2, 3, 4]);
 plt.show()
 
