@@ -81,7 +81,7 @@ sns.pairplot(customers, x_vars = ['Age', 'Annual Income (k$)', 'Spending Score (
                kind = 'scatter',
                palette = 'Set2',
                height = 2,
-               plot_kws = {"s": 35, "alpha": 0.8});
+               plot_kws = {'s': 35, 'alpha': 0.8});
 pyplot.show()
 
 # Transforming the categorical variable into two binary variables
@@ -111,9 +111,9 @@ print(pca.n_components_)
 # Explained variance : squared-length of the vector
 print(pca.explained_variance_)
 
-# The number of clusters
-# ======================
-wcss = []  # WSS : Within-cluster Sum of Square 
+# WCSS vs. the number of clusters
+# ===============================
+wcss = []  # WCSS : Within-cluster Sum of Squares:inertia
 for i in range(1,11):
     km = KMeans(n_clusters = i,init = 'k-means++', max_iter = 300, n_init = 10, random_state = 0)
     km.fit(X)
