@@ -30,12 +30,10 @@ kmean = KMeans(n_clusters=2) # n_cluster: an arbitrary value of 2
 print(kmean.fit(X))
 
 # Find the centroid 
-# =================
 centroid = kmean.cluster_centers_
 print(f'The center of the clusters locate at {centroid}')
 
 # Plot the centroids 
-# ==================
 plt.scatter(X[ : , 0], X[ : , 1], s =None, c='g')
 plt.scatter(2.04179805,  2.09814033, s=100, c='b', marker='o')
 plt.scatter(-0.94538668, -1.03439097, s=100, c='r', marker='o')
