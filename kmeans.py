@@ -119,6 +119,7 @@ for i in range(1,11):
     km.fit(X)
     wcss.append(km.inertia_)
 plt.plot(range(1,11),wcss, c = 'C0')
+plt.title('Elbow Method', size=14)
 plt.xlabel('Number of clusters', size=10)
 plt.ylabel('wcss', size=12)
 plt.show()
